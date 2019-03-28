@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+import gzip
 import json
 import re
 import sys
@@ -13,7 +14,7 @@ patterns = [
 ]
 
 ids = {}
-for line in open("reddit_ham_postids.txt"):
+for line in gzip.open("reddit_ham_postids.txt.gz"):
     predicate, uid, label, postid = line.strip().split("\t")
     ids[postid] = "\t".join([predicate, uid, label])
 
