@@ -1,9 +1,9 @@
-# Data
-Data is taken from the https://files.pushshift.io/reddit/
+# Reddit Data
+Our Reddit corpus was created using all comments and submissions made between Jan 2006 and October 2018. 
 
-Both comments and submissions are taken. 
+The file data/raw/postids.txt.gz is in the format [predicate \t author_id \t predicate_value \t message_id]. Get the message texts yourself, the text to be taken is 'selftext' + 'body' + 'title' from api's json. You can either crawl only the post ids we used using the Reddit API, or you can obtain all the reddit data from another source, such as https://files.pushshift.io/reddit/
 
-The input file for each predicate is in format [author_id \t predicate_value \t message_id]. Get the message texts yourself, the text to be taken is 'selftext' + 'body' + 'title' from api's json. After that run prepare_data/clean_input_msg.py to clean the message's text.
+A Hadoop script for automatically extracting the needed messages and cleaning them is available in prepare_data/hadoop/. It expects to find reddit_comments and reddit_submission is in the user's home directory. If you opt to extract the messages yourself rather than using Hadoop, you will need to run prepare_data/clean_input_msg.py to clean the messages' text. 
 
 Then run prepare_data/categorize_users.py to split all users into train files (one for each predicate) and test file.
 
