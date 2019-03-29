@@ -104,7 +104,8 @@ def classify_users(predicate, inp_file):
         has_iama = False
         for line in f_in:
             try:
-                this_pred, auth, prof, txt = line.rstrip().split("\t")
+                keys, txt = line.rstrip().split("\t")
+                this_pred, auth, prof = keys.split(",")
                 if this_pred != predicate:
                     continue
                 if predicate == "age":

@@ -7,7 +7,7 @@ A Hadoop script for automatically extracting the needed messages and cleaning th
 
 Then run prepare_data/categorize_users.py to split all users into train files (one for each predicate) and test file.
 
-Then run prepare_data/form_input_samples.py to get the vocabulary indexing of all the messages corresponding to the authors from the split above.
+Then run prepare_data/create_input_samples.py to get the vocabulary indexing of all the messages corresponding to the authors from the split above.
 
 # Data format
 
@@ -20,3 +20,6 @@ The indexing of labels is according to the indexing of lines in predicae_list.tx
 The indexing of words is according to the /vocabulary.txt file and their respective embeddings are in /weights.txt file
 
 All word indixes arrays are padded, the padding index is the last word + 1 in the vocabulary. The word indexes arrays are 40 * 40 size for MovieChatt and 100 * 100 for Reddit and PersonaChat (utterance_len * subject_len)
+
+# Training and testing
+how?

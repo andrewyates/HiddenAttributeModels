@@ -16,7 +16,7 @@ patterns = [
 ids = {}
 for line in gzip.open("reddit_ham_postids.txt.gz"):
     predicate, uid, label, postid = line.strip().split("\t")
-    ids[postid] = "\t".join([predicate, uid, label])
+    ids[postid] = ",".join([predicate, uid, label])
 
 for line in sys.stdin:
     try:
